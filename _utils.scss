@@ -1,0 +1,74 @@
+```scss
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.no-cursor {
+  pointer-events: none;
+}
+
+.hand-cursor {
+  cursor: pointer !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.invisible {
+  display: block;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+// Margins:
+.m5 {
+  margin: 5px;
+}
+
+$spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100);
+$sides: (top, bottom, left, right);
+
+@each $space in $spaceamounts {
+  @each $side in $sides {
+    .m-#{str-slice($side, 0, 1)}-#{$space} {
+      margin-#{$side}: #{$space}px !important;
+    }
+
+    .p-#{str-slice($side, 0, 1)}-#{$space} {
+      padding-#{$side}: #{$space}px !important;
+    }
+  }
+}
+
+
+// Widths:
+$widthSpaces: (5, 10, 15, 20, 25, 30, 35, 40, 45,50, 60, 70, 80, 90, 100);
+@each $space in $widthSpaces {
+  .w-#{$space} {
+    width: #{$space}+'%' !important;
+  }
+}
+
+// Current Usage:
+// - cases.component  apply ONLY to have '.flex-end` class
+.mat-grid-tile.flex-end .mat-figure {
+  justify-content: flex-end !important;
+}
+
+.required-asterik:after {
+  content: " *";
+  color: red;
+}
+
+.override-mat-grid-tile-alignment.mat-grid-tile .mat-figure {
+  justify-content: flex-start !important;
+}
+
+.center-align {
+  display: flex;
+  justify-content: center;
+}
+```
